@@ -68,8 +68,13 @@ plt.show()
 
 
 #Are there specific hours where the gym is less crowded?
+gymHour = gym.groupby(['hour'], as_index=False).mean()
 
+sns.lineplot(x=gymHour['hour'],y=gymHour['number_people'])
+plt.xlabel('Hour')
+plt.ylabel('Mean Number of People Per Hour')
+plt.show()
 
-
-
+##To Do:
+#Try Principal Component Analysis to figure out which features are most meaningful.
 #Apply ML to see if features can predict gym attendance
